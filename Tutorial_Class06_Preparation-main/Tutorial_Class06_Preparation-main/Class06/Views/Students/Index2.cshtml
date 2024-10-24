@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Class06.Models.Student>
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h1>Students List</h1>
+@if (String.IsNullOrEmpty(ViewBag.Letter) == false)
+{
+    <p>Names Started by '@ViewBag.letter' </p>
+}
+else
+{
+    <p>All Names</p>
+}
+@if (String.IsNullOrEmpty(ViewBag.Letter))
+{
+    <span style="color:oragered; font:bold;">ALL&nbsp;|&nbsp;</span>
+}
+else
+{
+    <span><a asp-route="filtered" asp-route-letter="">All</a>&nbsp;|&nbsp;</span>
+}
+@for(char c='A'; c<='Z'; c++)
+{
+    if (ViewBag.letter == c.ToString() && ViewBag.letter == c.ToString().ToLower())
+    {
+        <span style="color:oragered; font:bold;">@c &nbsp;|&nbsp;</span>
+
+    }
+    else
+    {
+        <span><a asp-route="filtered" asp-route-letter="@c">@c</a>&nbsp;|&nbsp;</span>
+    }
+}
+<partial name="Listing" model="Model" />
+
