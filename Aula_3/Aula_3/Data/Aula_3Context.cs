@@ -15,5 +15,6 @@ namespace Aula_3.Data
         }
 
         public DbSet<Aula_3.Models.Category> Category { get; set; } = default!;
+        public DbSet<Aula_3.Models.Course> Course { get; set; } = default!;
     }
 }

@@ -20,5 +20,6 @@ namespace Aula_3.Models
         [DisplayName("Creation Name")]
         public DateTime Date {  get; set; }=DateTime.Now;
         
+        public ICollection<Course>? Courses { get; set; }
     }
 }
