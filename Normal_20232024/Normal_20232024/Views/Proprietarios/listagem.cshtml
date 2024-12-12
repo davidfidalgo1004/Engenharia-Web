@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Normal_20232024.Models.Proprietario>
+
+<table id="table" class="table">
+    <thead>
+        <tr>
+            <th>
+               <a asp-action="Ordena"
+               data-ajax="true" data-ajax-mode="replace" data-ajax-metod="get" data-ajax-update="#table"
+               >@Html.DisplayNameFor(model => model.Nome)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nacionalidade)
+            </th>
+            <th>
+                Veiculos
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nacionalidade)
+            </td>
+            <td>
+                @item.Veiculos.Count()
+            </td>
+            <td>
+                <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

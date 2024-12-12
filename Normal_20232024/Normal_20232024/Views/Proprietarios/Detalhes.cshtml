@@ -1,0 +1,46 @@
+﻿@model Normal_20232024.Models.Proprietario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Veiculo Propriedades</h1>
+<h1>@Model.Nome</h1>
+<a asp-action="Adicionar" asp-controller="Veiculos" asp-route-id=@Model.Id>Adicionar Veiculo</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Matricula
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Modelo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Veiculos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Matricula">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Matricula">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Matricula">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

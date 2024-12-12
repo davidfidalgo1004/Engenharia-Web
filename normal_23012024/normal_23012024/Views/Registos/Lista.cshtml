@@ -1,0 +1,15 @@
+﻿@model IEnumerable<normal_23012024.Models.RegistoUtilizador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Utilizadores</h1>
+@if (TempData["MsgOk"] != null)
+{
+    <label style="color:green">@TempData["MsgOk"]</label>
+}
+<p>
+    <a asp-action="Adiciona" class="btn btn-outline-primary">+</a>
+</p>
+<partial name="Listagem" model="@Model" />
